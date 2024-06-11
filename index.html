@@ -9,5 +9,34 @@
     <body>
         <h1>Event Registration Portal</h1>
         
+        <form id="RegistrationForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="eventDate">Event Date:</label>
+            <select id="eventDate" name="eventDate" required>
+                <option value="">Select a date</option>
+                <option value="2024-08-25">August 25th, 2024</option>
+                <option value="2024-09-15">September 15th, 2024</option>
+                <option value="2024-10-05">October 5th, 2024</option>
+            </select>
+            
+            <label>Meal Preference:</label>
+            <input type="checkbox" id="nonVegetarian" name="preferences" value="Non-Vegetarian">
+            <label for="nonVegetarian">Non-Vegetarian</label>
+            <br>
+            <input type="checkbox" id="vegetarian" name="preferences" value="Vegetarian">
+            <label for="vegetarian">Vegetarian</label>
+            <br>
+            <input type="checkbox" id="vegan" name="preferences" value="Vegan">
+            <label for="vegan">Vegan</label>
+            
+            <button type="submit">Register</button>
+        </form>
+
+        <div id="RegistrationDetails"></div>
     </body>
 </html>

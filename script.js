@@ -1,7 +1,7 @@
 // U08282838
 document.getElementById('RegistrationForm').addEventListener('submit', function(event) 
 {
-    event.preventDefault();
+event.preventDefault();
 
     // Get form values
     const name = document.getElementById('name').value;
@@ -10,10 +10,25 @@ document.getElementById('RegistrationForm').addEventListener('submit', function(
     const preferences = Array.from(document.querySelectorAll('input[name="preferences"]:checked')).map(el => el.value);
 
     // Validate form fields
-    if (!name || !email || !eventDate) 
+    if (!name || !email || !eventDate || preferences.length === 0) 
     {
         alert('Please fill out all required fields.');
         return;
     }
-    form.reset();
+
+    // Display registration details
+    const RegistrationDetails = document.getElementById('RegistrationDetails');
+    const RegistrationDisplay = document.createElement(`div`);
+    RegistrationDisplay.innerHTML = 
+    `
+        <h2>Registration Details</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Event Date:</strong> ${eventDate}</p>
+        <p><strong>Meal Preferences:</strong> ${preferences.join(', ')}</p>
+    `;
+   RegistrationDetails.appendChild(RegistrationDisplay);
+
+    // Reset form fields
+    document.getElementById('RegistrationForm').reset();
 });
